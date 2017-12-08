@@ -14,7 +14,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        dataHelper= new DataHelper(this);
+        dataHelper = new DataHelper(getApplicationContext());
+        db = dataHelper.getReadableDatabase();
     }
 
     public void mulaiPermainan(View v){

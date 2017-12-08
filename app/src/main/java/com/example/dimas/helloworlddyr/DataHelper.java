@@ -32,6 +32,15 @@ public class DataHelper extends SQLiteOpenHelper {
                 ");";
         Log.d("Data", "onCreate: " + sql);
         db.execSQL(sql);
+
+        sql = "" +
+                "CREATE TABLE user(" +
+                "id INTEGER PRIMARY KEY AYTOINCREMENT, " +
+                "nama TEXT, " +
+                "score NUMBER " +
+                ");";
+        db.execSQL(sql);
+
         //level 1
         sql = "INSERT INTO pertanyaan(id) VALUES('001');";
         db.execSQL(sql);
