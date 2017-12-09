@@ -4,72 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/wwtbamBackground"
     tools:context="com.example.dimas.helloworlddyr.PlayActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:progressBackgroundTint="@color/white"
+            android:progressTint="@color/orange"
+            android:layout_centerHorizontal="true" />
+
         <TextView
             android:id="@+id/txt_hadiah_sekarang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+            android:textColor="@color/white"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="21dp"
-            android:text="RP 50.000" />
-
-        <Button
-            android:id="@+id/btn_help_fifty2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_hadiah_sekarang"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="35dp"
-            android:onClick="bantuanFifty2"
-            android:text="50 : 50" />
-
-        <Button
-            android:id="@+id/btn_help_call"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_hadiah_sekarang"
-            android:layout_toRightOf="@id/btn_help_fifty2"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:onClick="tambahProgress"
-            android:text="Call a Friend" />
-
-        <Button
-            android:id="@+id/btn_help_vote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_hadiah_sekarang"
-            android:layout_toRightOf="@id/btn_help_call"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="Vote" />
-
-        <TextView
-            android:id="@+id/tv_pertanyaan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_help_call"
             android:layout_marginTop="30dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_centerInParent="true"
-            android:textSize="17dp"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-            android:text="Siapakah presiden pertama Negara Indonesia?" />
+            android:text="RP 50.000" />
+        <LinearLayout
+            android:id="@+id/layout_bantuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/txt_hadiah_sekarang">
+
+            <ImageView
+                android:id="@+id/btn_help_fifty2"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:src="@drawable/wwtbam3"
+                android:onClick="bantuanFifty2" />
+
+            <ImageView
+                android:id="@+id/btn_help_call"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:src="@drawable/wwtbam2"
+                android:onClick="tambahProgress" />
+
+            <ImageView
+                android:id="@+id/btn_help_vote"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:src="@drawable/wwtbam1" />
+        </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/layout_pertanyaan"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/layout_bantuan">
+
+            <TextView
+                android:id="@+id/tv_pertanyaan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="17dp"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="serif"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:text="Siapakah presiden pertama Negara Indonesia? " />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="330dp"
             android:layout_height="match_parent"
-            android:layout_below="@+id/btn_help_call"
-            android:layout_marginTop="180dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/layout_pertanyaan"
             android:layout_centerHorizontal="true"
             android:orientation="vertical">
 
@@ -106,13 +125,6 @@
                 android:textAllCaps="false"
                 android:text="D. John Lennon" />
         </LinearLayout>
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
