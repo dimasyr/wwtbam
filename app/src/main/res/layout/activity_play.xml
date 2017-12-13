@@ -7,124 +7,138 @@
     android:background="@color/wwtbamBackground"
     tools:context="com.example.dimas.helloworlddyr.PlayActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:progressBackgroundTint="@color/white"
-            android:progressTint="@color/orange"
-            android:layout_centerHorizontal="true" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/txt_hadiah_sekarang"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:textColor="@color/white"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:text="RP 50.000" />
-        <LinearLayout
-            android:id="@+id/layout_bantuan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:layout_below="@+id/txt_hadiah_sekarang">
-
-            <ImageView
-                android:id="@+id/btn_help_fifty2"
-                android:layout_width="80dp"
-                android:layout_height="50dp"
-                android:src="@drawable/wwtbam3"
-                android:onClick="bantuanFifty2" />
-
-            <ImageView
-                android:id="@+id/btn_help_call"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                android:src="@drawable/wwtbam2"
-                android:onClick="tambahProgress" />
-
-            <ImageView
-                android:id="@+id/btn_help_vote"
-                android:layout_width="80dp"
-                android:layout_height="50dp"
-                android:src="@drawable/wwtbam1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout_pertanyaan"
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:layout_marginTop="20dp"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/layout_bantuan">
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:progressBackgroundTint="@color/white"
+                android:progressTint="@color/orange" />
 
             <TextView
-                android:id="@+id/tv_pertanyaan"
+                android:id="@+id/txt_hadiah_sekarang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textSize="17dp"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="serif"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:text="Siapakah presiden pertama Negara Indonesia? " />
-
-        </LinearLayout>
-
-
-
-        <LinearLayout
-            android:layout_width="330dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="15dp"
-            android:layout_below="@+id/layout_pertanyaan"
-            android:layout_centerHorizontal="true"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/btn_answer_a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:textAllCaps="false"
-                android:text="A. Adolf Hitler" />
-            <Button
-                android:id="@+id/btn_answer_b"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:text="B. Ir. Soekarno"
-                android:textAllCaps="false"/>
-            <Button
-                android:id="@+id/btn_answer_c"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:textAllCaps="false"
-                android:text="C. Sujiwo Tejo" />
-            <Button
-                android:id="@+id/btn_answer_d"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:textAllCaps="false"
-                android:text="D. John Lennon" />
-        </LinearLayout>
+                android:layout_marginTop="30dp"
+                android:text="RP 50.000"
+                android:textColor="@color/white" />
 
-    </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/layout_bantuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_hadiah_sekarang"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp">
+
+                <ImageView
+                    android:id="@+id/btn_help_fifty2"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:onClick="bantuanFifty2"
+                    android:src="@drawable/wwtbam3" />
+
+                <ImageView
+                    android:id="@+id/btn_help_call"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:onClick="tambahProgress"
+                    android:src="@drawable/wwtbam2" />
+
+                <ImageView
+                    android:id="@+id/btn_help_vote"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:onClick="showNextQuiz2"
+                    android:src="@drawable/wwtbam1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_pertanyaan"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_below="@id/layout_bantuan"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/tv_pertanyaan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:fontFamily="serif"
+                    android:text="Siapakah presiden pertama Negara Indonesia? "
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="17dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="330dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/layout_pertanyaan"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_answer_a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="A. Adolf Hitler"
+                    android:onClick="cekJawaban"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_answer_b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="B. Ir. Soekarno"
+                    android:onClick="cekJawaban"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_answer_c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="C. Sujiwo Tejo"
+                    android:onClick="cekJawaban"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_answer_d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="D. John Lennon"
+                    android:onClick="cekJawaban"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

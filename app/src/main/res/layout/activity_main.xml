@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,55 +7,61 @@
     android:background="@color/wwtbamBackground"
     tools:context="com.example.dimas.helloworlddyr.MainActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="270dp"
-            android:layout_height="270dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/millionaire"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/btn_play"
-            android:layout_width="350dp"
-            android:onClick="mulaiPermainan"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView2"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:text="Bermain" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="270dp"
+                android:layout_height="270dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/millionaire" />
 
-        <Button
-            android:id="@+id/btn_about"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_play"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="Tentang permainan" />
+            <Button
+                android:id="@+id/btn_play"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView2"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:onClick="mulaiPermainan"
+                android:text="Bermain" />
 
-        <Button
-            android:id="@+id/btn_close_app"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:onClick="keluarPermainan"
-            android:layout_below="@id/btn_about"
+            <Button
+                android:id="@+id/btn_about"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_play"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Tentang permainan" />
 
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="Keluar" />
+            <Button
+                android:id="@+id/btn_close_app"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btn_about"
+                android:layout_marginLeft="10dp"
+
+                android:layout_marginTop="10dp"
+                android:onClick="keluarPermainan"
+                android:text="Keluar" />
 
 
-    </RelativeLayout>
+        </RelativeLayout>
+
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>
