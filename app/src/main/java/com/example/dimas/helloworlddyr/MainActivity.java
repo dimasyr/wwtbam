@@ -18,6 +18,11 @@ public class MainActivity extends AppCompatActivity {
 //        db = dataHelper.getReadableDatabase();
     }
 
+    @Override
+    public void onBackPressed(){
+
+    }
+
     public void mulaiPermainan(View v){
         Intent intent = new Intent(this,PlayActivity.class);
         startActivity(intent);

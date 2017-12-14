@@ -1,6 +1,7 @@
 package com.example.dimas.helloworlddyr;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,7 +20,7 @@ import java.util.Random;
 public class PlayActivity extends AppCompatActivity {
 
     ProgressBar pgBar;
-    private static int progress = 1;
+    private int progress = 1;
     private TextView textHadiahSekarang;
     private TextView textPertanyaan;
     private Button btnJawabanA;
@@ -117,7 +118,7 @@ public class PlayActivity extends AppCompatActivity {
     public void tambahProgress(View v){
         progress+=1;
         pgBar.setProgress(progress);
-        textHadiahSekarang.setText(progress+"");
+        textHadiahSekarang.setText(listHadiah[progress-1]);
     }
 
     public void bantuanFifty2(View v){
@@ -157,6 +158,11 @@ public class PlayActivity extends AppCompatActivity {
         pertanyaanArray.remove(randNum);
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
+
     public void cekJawaban(View view){
         //mendapatkan button yg di tekan
         Button btnYangDitekan = (Button)findViewById(view.getId());
@@ -166,11 +172,24 @@ public class PlayActivity extends AppCompatActivity {
 
         if (teksButtonnya.equals(jawabanYangBenar)){
             alertTitle = "Benar!";
+            Toast.makeText(getApplicationContext(),alertTitle,Toast.LENGTH_SHORT).show();
             soalKe++;
-            showNextQuiz();
+            tambahProgress(view);
+            if(soalKe==16){
+
+            }
+            else{
+                showNextQuiz();
+            }
+
+
         } else {
             alertTitle = "Salah!";
+            Toast.makeText(getApplicationContext(),alertTitle,Toast.LENGTH_SHORT).show();
             salah = true;
+            Intent intent = new Intent(getApplicationContext(),ResultActivity.class);
+            intent.putExtra("skorAnda",listHadiah[progress-1]);
+            startActivity(intent);
         }
 
     }

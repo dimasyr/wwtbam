@@ -1,7 +1,9 @@
 package com.example.dimas.helloworlddyr;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
@@ -12,6 +14,23 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         TextView resultLabel = (TextView) findViewById(R.id.tv_hadiah);
-        int score = 0;
+        TextView resultText = (TextView) findViewById(R.id.tv_uangAnda);
+        String skor = getIntent().getStringExtra("skorAnda");
+        resultText.setText("Selamat pemain, anda berhasil membawa");
+        resultLabel.setText(skor);
+    }
+
+    public void keluarPermainan(View v){
+        finish();
+    }
+
+    public void backToHome(View v){
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void mulaiPermainan(View v){
+        Intent intent = new Intent(this,PlayActivity.class);
+        startActivity(intent);
     }
 }
