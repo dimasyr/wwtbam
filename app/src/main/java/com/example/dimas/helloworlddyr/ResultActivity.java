@@ -16,7 +16,7 @@ public class ResultActivity extends AppCompatActivity {
         TextView resultLabel = (TextView) findViewById(R.id.tv_hadiah);
         TextView resultText = (TextView) findViewById(R.id.tv_uangAnda);
         String skor = getIntent().getStringExtra("skorAnda");
-        resultText.setText("Selamat pemain, anda berhasil membawa");
+        resultText.setText("Selamat "+InputNamaActivity.nama+", anda berhasil membawa");
         resultLabel.setText(skor);
     }
 

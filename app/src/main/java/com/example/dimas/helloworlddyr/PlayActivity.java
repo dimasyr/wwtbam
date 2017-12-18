@@ -28,6 +28,7 @@ public class PlayActivity extends AppCompatActivity {
     private Button btnJawabanC;
     private Button btnJawabanD;
 
+
     private String jawabanYangBenar;
     private int soalKe = 1;
     private boolean salah = false;

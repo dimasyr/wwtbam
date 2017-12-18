@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void mulaiPermainan(View v){
-        Intent intent = new Intent(this,PlayActivity.class);
+        Intent intent = new Intent(this,InputNamaActivity.class);
         startActivity(intent);
     }
 
