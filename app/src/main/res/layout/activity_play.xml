@@ -21,7 +21,7 @@
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="2dp"
                 android:progressBackgroundTint="@color/white"
                 android:progressTint="@color/orange" />
 
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:text="RP 50.000"
                 android:textColor="@color/white" />
 
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txt_hadiah_sekarang"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="5dp">
 
                 <ImageView
                     android:id="@+id/btn_help_fifty2"
@@ -68,10 +68,10 @@
             <LinearLayout
                 android:id="@+id/layout_pertanyaan"
                 android:layout_width="wrap_content"
-                android:layout_height="150dp"
+                android:layout_height="130dp"
                 android:layout_below="@id/layout_bantuan"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="5dp">
 
                 <TextView
                     android:id="@+id/tv_pertanyaan"
@@ -94,7 +94,7 @@
                 android:layout_height="match_parent"
                 android:layout_below="@+id/layout_pertanyaan"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
                 <Button

@@ -30,7 +30,7 @@
         android:layout_marginTop="10sp"
         android:textColor="@color/colorPrimary"
         android:background="@drawable/et_white"
-        android:text="Nama" />
+        android:text="" />
 
     <Button
         android:id="@+id/btn_playnow"
