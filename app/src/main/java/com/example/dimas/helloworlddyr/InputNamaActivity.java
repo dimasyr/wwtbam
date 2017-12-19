@@ -10,7 +10,6 @@ import android.widget.EditText;
 public class InputNamaActivity extends AppCompatActivity {
 
     public static String nama;
-    private Button btn_play;
     private EditText inputan_nama;
 
     @Override

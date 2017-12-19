@@ -33,4 +33,9 @@ public class ResultActivity extends AppCompatActivity {
         Intent intent = new Intent(this,PlayActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+
+    }
 }

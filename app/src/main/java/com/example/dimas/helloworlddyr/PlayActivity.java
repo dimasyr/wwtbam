@@ -7,7 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +27,7 @@ public class PlayActivity extends AppCompatActivity {
     private int proses_fifty = 2;
     private TextView textHadiahSekarang;
     private TextView textPertanyaan;
+    private TextView textCallAFriend;
     private Button btnJawabanA;
     private Button btnJawabanB;
     private Button btnJawabanC;
@@ -32,11 +35,11 @@ public class PlayActivity extends AppCompatActivity {
     private ImageView btnFifty2;
     private ImageView btnCallAFriend;
     private ImageView btnVote;
-
-
+    private View frameCallAFriend;
+    private View framePermainan;
+    private boolean kesempatanCallaFriend = true;
     private String jawabanYangBenar;
     private int soalKe = 1;
-    private boolean salah = false;
 
     ArrayList<ArrayList<String>> pertanyaanArray = new ArrayList<>();
 
@@ -104,6 +107,10 @@ public class PlayActivity extends AppCompatActivity {
         btnFifty2 = (ImageView) findViewById(R.id.btn_help_fifty2);
         btnCallAFriend = (ImageView) findViewById(R.id.btn_help_call);
         btnVote = (ImageView) findViewById(R.id.btn_help_vote);
+        textCallAFriend = (TextView)findViewById(R.id.tv_callafriend);
+        frameCallAFriend = (View)findViewById(R.id.frame_layout_callafriend);
+        framePermainan = (View)findViewById(R.id.frame_permainan);
+        frameCallAFriend.setVisibility(View.GONE);
 
         //Crate quizArray from quizData
         for (int i = 0; i < dataPertanyaan.length; i++) {
@@ -128,6 +135,28 @@ public class PlayActivity extends AppCompatActivity {
         progress += 1;
         pgBar.setProgress(progress);
         textHadiahSekarang.setText(listHadiah[progress - 1]);
+    }
+
+    public void bantuanCallaFriend(View v){
+        if(kesempatanCallaFriend){
+            String jawaban ="";
+            if (btnJawabanA.getText().toString().equals(jawabanYangBenar)) {
+                jawaban="A";
+            } else if (btnJawabanB.getText().toString().equals(jawabanYangBenar)) {
+                jawaban="B";
+            } else if (btnJawabanC.getText().toString().equals(jawabanYangBenar)) {
+                jawaban="C";
+            } else if (btnJawabanD.getText().toString().equals(jawabanYangBenar)) {
+                jawaban="D";
+            }
+            frameCallAFriend.setVisibility(View.VISIBLE);
+            framePermainan.setVisibility(View.GONE);
+            textCallAFriend.setText("Perkiraan tertinggi saya, saya rasa jawabannya adalah "+jawaban);
+            kesempatanCallaFriend = false;
+            btnCallAFriend.setVisibility(View.GONE);
+
+        }
+
     }
 
     public void bantuanFifty2(View v) {
@@ -167,6 +196,12 @@ public class PlayActivity extends AppCompatActivity {
             }
         }
         btnFifty2.setVisibility(View.INVISIBLE);
+    }
+
+    public void tutupBantuanCall(View v){
+        frameCallAFriend.setVisibility(View.INVISIBLE);
+        btnCallAFriend.setVisibility(View.INVISIBLE);
+        framePermainan.setVisibility(View.VISIBLE);
     }
 
     public void showNextQuiz2(View v) {
@@ -226,7 +261,6 @@ public class PlayActivity extends AppCompatActivity {
         } else {
             alertTitle = "Salah!";
             Toast.makeText(getApplicationContext(), alertTitle, Toast.LENGTH_SHORT).show();
-            salah = true;
             Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
             if (soalKe == 1) {
                 intent.putExtra("skorAnda", "0");
