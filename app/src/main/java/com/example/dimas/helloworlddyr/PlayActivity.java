@@ -154,9 +154,7 @@ public class PlayActivity extends AppCompatActivity {
             textCallAFriend.setText("Perkiraan tertinggi saya, saya rasa jawabannya adalah "+jawaban);
             kesempatanCallaFriend = false;
             btnCallAFriend.setVisibility(View.GONE);
-
         }
-
     }
 
     public void bantuanFifty2(View v) {

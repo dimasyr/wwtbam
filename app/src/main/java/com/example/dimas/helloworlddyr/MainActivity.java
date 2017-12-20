@@ -2,6 +2,7 @@ package com.example.dimas.helloworlddyr;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 //        dataHelper = new DataHelper(getApplicationContext());
 //        db = dataHelper.getReadableDatabase();
+        final MediaPlayer mainMusicMP = MediaPlayer.create(this,R.raw.main_theme);
+        mainMusicMP.start();
     }
 
     @Override
