@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".PlayActivity" />
         <activity android:name=".ResultActivity" />
-        <activity android:name=".InputNamaActivity"></activity>
+        <activity android:name=".InputNamaActivity" />
+        <activity android:name=".AboutGameActivity"></activity>
     </application>
 
 </manifest>
