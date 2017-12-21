@@ -7,10 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import java.security.PublicKey;
+
 public class MainActivity extends AppCompatActivity {
     DataHelper dataHelper;
     SQLiteDatabase db;
     public MediaPlayer mainMusicMP;
+    public static boolean play=true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +22,10 @@ public class MainActivity extends AppCompatActivity {
 //        dataHelper = new DataHelper(getApplicationContext());
 //        db = dataHelper.getReadableDatabase();
         mainMusicMP = MediaPlayer.create(this,R.raw.main_theme);
-        mainMusicMP.start();
+        if(play){
+            mainMusicMP.start();
+        }
+        play=false;
     }
 
     @Override
@@ -37,5 +43,10 @@ public class MainActivity extends AppCompatActivity {
     public void keluarPermainan(View v){
         mainMusicMP.release();
         finish();
+    }
+
+    public void openTentangGame(View view){
+        Intent intent = new Intent(this,AboutGameActivity.class);
+        startActivity(intent);
     }
 }

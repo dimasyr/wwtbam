@@ -150,7 +150,7 @@ public class PlayActivity extends AppCompatActivity {
                 jawaban="D";
             }
             frameCallAFriend.setVisibility(View.VISIBLE);
-            framePermainan.setVisibility(View.GONE);
+            //framePermainan.setVisibility(View.GONE);
             textCallAFriend.setText("Perkiraan tertinggi saya, saya rasa jawabannya adalah "+jawaban);
             kesempatanCallaFriend = false;
             btnCallAFriend.setVisibility(View.GONE);

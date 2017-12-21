@@ -46,6 +46,7 @@
                 android:layout_below="@+id/btn_play"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
+                android:onClick="openTentangGame"
                 android:text="Tentang permainan" />
 
             <Button
