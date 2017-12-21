@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 //        dataHelper = new DataHelper(getApplicationContext());
 //        db = dataHelper.getReadableDatabase();
         mainMusicMP = MediaPlayer.create(this,R.raw.main_theme);
+        mainMusicMP.setLooping(true);
         if(play){
             mainMusicMP.start();
         }
@@ -35,12 +36,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void mulaiPermainan(View v){
+        mainMusicMP.setLooping(false);
         mainMusicMP.release();
         Intent intent = new Intent(this,InputNamaActivity.class);
         startActivity(intent);
     }
 
     public void keluarPermainan(View v){
+        mainMusicMP.setLooping(false);
         mainMusicMP.release();
         finish();
     }

@@ -2,12 +2,11 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="contentDescription"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/wwtbamBackground"
-    tools:context="com.example.dimas.helloworlddyr.PlayActivity">
-
+    tools:context="com.example.dimas.helloworlddyr.PlayActivity"
+    tools:ignore="contentDescription">
 
 
     <ScrollView
@@ -66,7 +65,7 @@
                     android:id="@+id/btn_help_vote"
                     android:layout_width="80dp"
                     android:layout_height="50dp"
-                    android:onClick="showNextQuiz2"
+                    android:onClick="bantuanVote"
                     android:src="@drawable/wwtbam1" />
             </LinearLayout>
 
@@ -144,6 +143,7 @@
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>
+
     <LinearLayout
         android:id="@+id/frame_layout_callafriend"
         android:layout_width="match_parent"
@@ -179,6 +179,180 @@
             android:layout_marginTop="10dp"
             android:background="@color/yellow"
             android:onClick="tutupBantuanCall"
+            android:text="Tutup"
+            android:textAllCaps="false"
+            android:textColor="@color/blackMurni" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/frame_layout_vote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/black"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Hasil dari voting penonton adalah:"
+            android:textColor="@color/white"
+            android:textSize="16dp" />
+
+        <LinearLayout
+            android:id="@+id/layout_pgA"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:fontFamily="serif"
+                android:text="A"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <ProgressBar
+                android:id="@+id/pb_A"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="160dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:progress="90" />
+
+            <TextView
+                android:id="@+id/tv_pgA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="90%"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_pgB"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:fontFamily="serif"
+                android:text="B"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <ProgressBar
+                android:id="@+id/pb_B"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="160dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:progress="40" />
+
+            <TextView
+                android:id="@+id/tv_pgB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="40%"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_pgC"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:fontFamily="serif"
+                android:text="C"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <ProgressBar
+                android:id="@+id/pb_C"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="160dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:progress="70" />
+
+            <TextView
+                android:id="@+id/tv_pgC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="70%"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_pgD"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:fontFamily="serif"
+                android:text="D"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <ProgressBar
+                android:id="@+id/pb_D"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="160dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:progress="20" />
+
+            <TextView
+                android:id="@+id/tv_pgD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="20%"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_closeVote"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/yellow"
+            android:onClick="tutupBantuanVote"
             android:text="Tutup"
             android:textAllCaps="false"
             android:textColor="@color/blackMurni" />

@@ -2,6 +2,9 @@ package com.example.dimas.helloworlddyr;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,6 +31,10 @@ public class PlayActivity extends AppCompatActivity {
     private TextView textHadiahSekarang;
     private TextView textPertanyaan;
     private TextView textCallAFriend;
+    private TextView tvPgA;
+    private TextView tvPgB;
+    private TextView tvPgC;
+    private TextView tvPgD;
     private Button btnJawabanA;
     private Button btnJawabanB;
     private Button btnJawabanC;
@@ -35,11 +42,21 @@ public class PlayActivity extends AppCompatActivity {
     private ImageView btnFifty2;
     private ImageView btnCallAFriend;
     private ImageView btnVote;
+    private ProgressBar pgA;
+    private ProgressBar pgB;
+    private ProgressBar pgC;
+    private ProgressBar pgD;
     private View frameCallAFriend;
     private View framePermainan;
+    private View frameVote;
     private boolean kesempatanCallaFriend = true;
     private String jawabanYangBenar;
     private int soalKe = 1;
+    public MediaPlayer mainMusicMP;
+    public MediaPlayer mainMusicMP2;
+    public MediaPlayer soundCorrect;
+    public MediaPlayer soundHelpCall;
+    public MediaPlayer soundWrong;
 
     ArrayList<ArrayList<String>> pertanyaanArray = new ArrayList<>();
 
@@ -107,10 +124,28 @@ public class PlayActivity extends AppCompatActivity {
         btnFifty2 = (ImageView) findViewById(R.id.btn_help_fifty2);
         btnCallAFriend = (ImageView) findViewById(R.id.btn_help_call);
         btnVote = (ImageView) findViewById(R.id.btn_help_vote);
-        textCallAFriend = (TextView)findViewById(R.id.tv_callafriend);
-        frameCallAFriend = (View)findViewById(R.id.frame_layout_callafriend);
-        framePermainan = (View)findViewById(R.id.frame_permainan);
+        textCallAFriend = (TextView) findViewById(R.id.tv_callafriend);
+        frameCallAFriend = (View) findViewById(R.id.frame_layout_callafriend);
+        framePermainan = (View) findViewById(R.id.frame_permainan);
+        frameVote = (View)findViewById(R.id.frame_layout_vote);
+        frameVote.setVisibility(View.GONE);
         frameCallAFriend.setVisibility(View.GONE);
+        mainMusicMP = MediaPlayer.create(this,R.raw.lets_play);
+        mainMusicMP2 = MediaPlayer.create(this,R.raw.satujuta_music);
+        soundCorrect = MediaPlayer.create(this,R.raw.correct_answer);
+        soundWrong = MediaPlayer.create(this,R.raw.wrong_answer);
+        soundHelpCall = MediaPlayer.create(this,R.raw.phone_a_friend);
+        mainMusicMP2.setLooping(true);
+        mainMusicMP.start();
+        mainMusicMP2.start();
+        pgA = (ProgressBar) findViewById(R.id.pb_A);
+        pgB = (ProgressBar) findViewById(R.id.pb_B);
+        pgC = (ProgressBar) findViewById(R.id.pb_C);
+        pgD = (ProgressBar) findViewById(R.id.pb_D);
+        tvPgA = (TextView) findViewById(R.id.tv_pgA);
+        tvPgB = (TextView) findViewById(R.id.tv_pgB);
+        tvPgC = (TextView) findViewById(R.id.tv_pgC);
+        tvPgD = (TextView) findViewById(R.id.tv_pgD);
 
         //Crate quizArray from quizData
         for (int i = 0; i < dataPertanyaan.length; i++) {
@@ -137,23 +172,69 @@ public class PlayActivity extends AppCompatActivity {
         textHadiahSekarang.setText(listHadiah[progress - 1]);
     }
 
-    public void bantuanCallaFriend(View v){
-        if(kesempatanCallaFriend){
-            String jawaban ="";
+    public void bantuanCallaFriend(View v) {
+        if (kesempatanCallaFriend) {
+            mainMusicMP2.pause();
+            soundHelpCall.start();
+            String jawaban = "";
             if (btnJawabanA.getText().toString().equals(jawabanYangBenar)) {
-                jawaban="A";
+                jawaban = "A";
             } else if (btnJawabanB.getText().toString().equals(jawabanYangBenar)) {
-                jawaban="B";
+                jawaban = "B";
             } else if (btnJawabanC.getText().toString().equals(jawabanYangBenar)) {
-                jawaban="C";
+                jawaban = "C";
             } else if (btnJawabanD.getText().toString().equals(jawabanYangBenar)) {
-                jawaban="D";
+                jawaban = "D";
             }
             frameCallAFriend.setVisibility(View.VISIBLE);
             //framePermainan.setVisibility(View.GONE);
-            textCallAFriend.setText("Perkiraan tertinggi saya, saya rasa jawabannya adalah "+jawaban);
+            textCallAFriend.setText("Perkiraan tertinggi saya, saya rasa jawabannya adalah " + jawaban);
             kesempatanCallaFriend = false;
             btnCallAFriend.setVisibility(View.GONE);
+        }
+    }
+
+    public void bantuanVote(View view) {
+        frameVote.setVisibility(View.VISIBLE);
+        if (btnJawabanA.getText().toString().equals(jawabanYangBenar)) {
+            pgA.setProgress(60);
+            tvPgA.setText("60%");
+            pgB.setProgress(20);
+            tvPgB.setText("20%");
+            pgC.setProgress(10);
+            tvPgC.setText("10%");
+            pgD.setProgress(10);
+            tvPgD.setText("10%");
+        }
+        if (btnJawabanB.getText().toString().equals(jawabanYangBenar)) {
+            pgB.setProgress(65);
+            tvPgB.setText("65%");
+            pgA.setProgress(5);
+            tvPgA.setText("5%");
+            pgC.setProgress(20);
+            tvPgC.setText("20%");
+            pgD.setProgress(10);
+            tvPgD.setText("10%");
+        }
+        if (btnJawabanC.getText().toString().equals(jawabanYangBenar)) {
+            pgC.setProgress(58);
+            tvPgC.setText("58%");
+            pgA.setProgress(10);
+            tvPgA.setText("10%");
+            pgB.setProgress(12);
+            tvPgB.setText("12%");
+            pgD.setProgress(20);
+            tvPgD.setText("20%");
+        }
+        if (btnJawabanD.getText().toString().equals(jawabanYangBenar)) {
+            pgD.setProgress(54);
+            tvPgD.setText("54%");
+            pgA.setProgress(20);
+            tvPgA.setText("20%");
+            pgB.setProgress(16);
+            tvPgB.setText("16%");
+            pgC.setProgress(10);
+            tvPgC.setText("10%");
         }
     }
 
@@ -196,11 +277,18 @@ public class PlayActivity extends AppCompatActivity {
         btnFifty2.setVisibility(View.INVISIBLE);
     }
 
-    public void tutupBantuanCall(View v){
+    public void tutupBantuanCall(View v) {
+        soundHelpCall.release();
+        mainMusicMP2.start();
         frameCallAFriend.setVisibility(View.INVISIBLE);
         btnCallAFriend.setVisibility(View.INVISIBLE);
-        framePermainan.setVisibility(View.VISIBLE);
     }
+
+    public void tutupBantuanVote(View view){
+        frameVote.setVisibility(View.GONE);
+        btnVote.setVisibility(View.GONE);
+    }
+
 
     public void showNextQuiz2(View v) {
         showNextQuiz();
@@ -244,6 +332,14 @@ public class PlayActivity extends AppCompatActivity {
 
         if (teksButtonnya.equals(jawabanYangBenar)) {
             alertTitle = "Benar!";
+            if(soundCorrect.isPlaying()){
+                soundCorrect.pause();
+                soundCorrect.seekTo(0);
+                soundCorrect.start();
+            }
+            else{
+                soundCorrect.start();
+            }
             Toast.makeText(getApplicationContext(), alertTitle, Toast.LENGTH_SHORT).show();
             soalKe++;
             tambahProgress(view);
@@ -258,6 +354,9 @@ public class PlayActivity extends AppCompatActivity {
 
         } else {
             alertTitle = "Salah!";
+            soundWrong.start();
+            mainMusicMP2.setLooping(false);
+            mainMusicMP2.release();
             Toast.makeText(getApplicationContext(), alertTitle, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
             if (soalKe == 1) {
